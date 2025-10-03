@@ -6,7 +6,7 @@ public class TesteVariaveis {
 	public static String curso = "Variavel Global";
 	
 	public static void main(String[] args) {
-		//testeVariaveis();
+		testeVariaveis();
 		testeVariavelEstatica();
 	}
 	
@@ -20,7 +20,7 @@ public class TesteVariaveis {
 	VariaveisNaoEstaticas naoEstatica3 = new VariaveisNaoEstaticas();
 	VariaveisNaoEstaticas naoEstatica4 = new VariaveisNaoEstaticas();
 	
-	System.out.println("-------------Antes-------------");
+	System.out.println("-------------testeVariaveis Antes-------------");
 	
 	System.out.println(naoEstatica1.nome);
 	System.out.println(naoEstatica2.nome);
@@ -31,7 +31,7 @@ public class TesteVariaveis {
 	
 	naoEstatica2.nome="Curso basico Java";
 	
-	System.out.println("-------------Depois-------------");
+	System.out.println("-------------testeVariaveis Depois-------------");
 	
 	System.out.println(naoEstatica1.nome);
 	System.out.println(naoEstatica2.nome);
@@ -48,7 +48,7 @@ public class TesteVariaveis {
 		VariaveisEstaticas estatica3 = new VariaveisEstaticas();
 		VariaveisEstaticas estatica4 = new VariaveisEstaticas();
 		
-		System.out.println("-------------Antes-------------");
+		System.out.println("-------------testeVariavelEstatica Antes-------------");
 		
 		System.out.println(estatica1.cor);
 		System.out.println(estatica2.cor);
@@ -59,7 +59,7 @@ public class TesteVariaveis {
 		
 		estatica2.cor="Vermelho Ferrari";
 		
-		System.out.println("-------------Depois-------------");
+		System.out.println("-------------testeVariavelEstatica Depois-------------");
 		
 		System.out.println(estatica1.cor);
 		System.out.println(estatica2.cor);
