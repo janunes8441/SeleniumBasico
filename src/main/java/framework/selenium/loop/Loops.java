@@ -3,7 +3,7 @@ package framework.selenium.loop;
 public class Loops {
 
 	public static void main(String[] args) {
-		testeFor(5);
+		testeWhile();
 
 	}
 	
@@ -15,6 +15,21 @@ public class Loops {
 		
 		
 		
+	}
+	
+	public static void testeWhile() {
+		
+		int i=0;
+		
+		while(i<= 2) {
+			
+			System.out.println("Ainda está no loop");
+			
+			i++;
+			
+		}
+		
+		System.out.println("Saiu do loop");
 	}
 	
 	
