@@ -17,8 +17,9 @@ public class TesteLocator {
 	public static void main(String[] args) throws InterruptedException {
 		// TesteFacebookIdEName();
 		// TesteTagName();
-		//TesteClassName();
-		TesteTex();
+		// TesteClassName();
+		// TesteTex();
+		TesteCssSelector();
 	}
 
 	public static void TesteFacebookIdEName() {
@@ -88,9 +89,9 @@ public class TesteLocator {
 		// Navega para o Facebook
 		driver.get("https://www.trivago.com.br");
 		System.out.println("Abriu o navegador e foi pro site");
-		//Thread.sleep(5000);
-		
-		//Tag Class
+		// Thread.sleep(5000);
+
+		// Tag Class
 		driver.findElement(By.className("apRPgd")).click();
 		System.out.println("1 - Fechar modal criar conta");
 		driver.findElement(By.className("Ji89fk")).click();
@@ -102,28 +103,51 @@ public class TesteLocator {
 		System.out.println("Fechar");
 		System.out.println("---------- FIM LOCATOR CLASS ----------");
 	}
-	
+
 	public static void TesteTex() throws InterruptedException {
-			
+
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--start-maximized");
 		WebDriver driver = new ChromeDriver(options);
-		
+
 		driver.get("https://facebook.com.br");
-		
+
 		driver.findElement(By.linkText("Esqueceu a senha?")).click();
 		System.out.println("1-LinkText");
 		Thread.sleep(2000);
-		
+
 		driver.findElement(By.partialLinkText("Esqueceu")).click();
 		System.out.println("2-PartialLinkText");
-		
+
 		driver.quit();
 		System.out.println("Fechar");
-		
-		
-		
+
+	}
+
+	public static void TesteCssSelector() {
+
+		WebDriverManager.chromedriver();
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://www.facebook.com.br");
+		//mapear cssSelector Atributo
+		WebElement email = driver.findElement(By.cssSelector("input[type='text']"));
+		email.sendKeys("email@email.com");
+		//mapear cssSelector por ID "#"
+		driver.findElement(By.cssSelector("input#pass")).sendKeys("123456");
+		//mapear cssSelector Atributo
+		driver.findElement(By.cssSelector("button[name='login']"))
+		.click();
+		//mapear cssSelector por class "."
+		driver.findElement(By.cssSelector("input._9npi")).sendKeys("123456");
+		driver.findElement(By.cssSelector("input._55r1"))
+		.sendKeys("MAIUSCULO");
+		driver.findElement(By.cssSelector("input._55r1"))
+		.sendKeys("minusculo"); 
+		 
 	}
 	
+	
+
 }
