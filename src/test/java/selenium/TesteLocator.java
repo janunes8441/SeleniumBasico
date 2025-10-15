@@ -19,7 +19,8 @@ public class TesteLocator {
 		// TesteTagName();
 		// TesteClassName();
 		// TesteTex();
-		TesteCssSelector();
+		//TesteCssSelector();
+		TesteCssSelectorSubString();
 	}
 
 	public static void TesteFacebookIdEName() {
@@ -131,23 +132,33 @@ public class TesteLocator {
 		WebDriver driver = new ChromeDriver();
 
 		driver.get("https://www.facebook.com.br");
-		//mapear cssSelector Atributo
+		// mapear cssSelector Atributo
 		WebElement email = driver.findElement(By.cssSelector("input[type='text']"));
 		email.sendKeys("email@email.com");
-		//mapear cssSelector por ID "#"
+		// mapear cssSelector por ID "#"
 		driver.findElement(By.cssSelector("input#pass")).sendKeys("123456");
-		//mapear cssSelector Atributo
-		driver.findElement(By.cssSelector("button[name='login']"))
-		.click();
-		//mapear cssSelector por class "."
+		// mapear cssSelector Atributo
+		driver.findElement(By.cssSelector("button[name='login']")).click();
+		// mapear cssSelector por class "."
 		driver.findElement(By.cssSelector("input._9npi")).sendKeys("123456");
-		driver.findElement(By.cssSelector("input._55r1"))
-		.sendKeys("MAIUSCULO");
-		driver.findElement(By.cssSelector("input._55r1"))
-		.sendKeys("minusculo"); 
-		 
+		driver.findElement(By.cssSelector("input._55r1")).sendKeys("MAIUSCULO");
+		driver.findElement(By.cssSelector("input._55r1")).sendKeys("minusculo");
+
+	}
+
+	public static void TesteCssSelectorSubString() {
+
+		WebDriverManager.chromedriver();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com.br");
+		driver.manage().window().maximize();
+		
+		//mapear por cssSelector prefixo "^"
+		driver.findElement(By.cssSelector("input[data-testid^='royal']")).sendKeys("a@a.com");
+		//mapear por cssSelector sufixo "$"
+		driver.findElement(By.cssSelector("input[type$='word']")).sendKeys("123");
+		//mapear por cssSelector universal "*"
+		driver.findElement(By.cssSelector("button[data-testid*='button']")).click();
 	}
 	
-	
-
 }
