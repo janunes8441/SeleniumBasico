@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -15,7 +18,8 @@ public class TestesWaits {
 
 	public static void main(String[] args) {
 		// testeWaitImplicito();
-		testeWaitImplicito2();
+		// testeWaitImplicito2();
+		testeWaitExplicito();
 	}
 
 	public static void testeWaitImplicito() {
@@ -94,6 +98,28 @@ public class TestesWaits {
 		} else {
 			System.out.println("O elemento não está visível!");
 		}
+
+		driver.quit();
+	}
+
+	public static void testeWaitExplicito() {
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://the-internet.herokuapp.com/dynamic_loading");
+		driver.manage().window().maximize();
+
+		// Clicar no exemplo 2
+		driver.findElement(By.cssSelector("a[href='/dynamic_loading/2']")).click();
+		driver.findElement(By.xpath("//button[normalize-space()='Start']")).click();
+		System.out.println("Clicou no botão START");
+
+		// Espera até que o texto do elemento finish fique visível
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebElement finishText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("finish")));
+
+		System.out.println("O elemento está visível: " + finishText.getText());
 
 		driver.quit();
 	}
