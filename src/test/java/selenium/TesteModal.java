@@ -24,7 +24,6 @@ public class TesteModal {
 		driver.get("https://formy-project.herokuapp.com/modal");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-
 		WebElement openmodal = driver.findElement(By.id("modal-button"));
 		System.out.println("1-mapeou o botão open modal");
 		openmodal.click();
@@ -32,8 +31,7 @@ public class TesteModal {
 		WebElement botaok = driver.findElement(By.id("ok-button"));
 		System.out.println("3-mapeou o botão ok");
 		WebElement botaoclose = driver.findElement(By.id("close-button"));
-		System.out.println("4-mapeou o botão close");
-		
+		System.out.println("4-mapeou o botão close");	
 		botaok.click();
 		System.out.println("5-clicou no botão ok");
 		botaoclose.click();
@@ -45,6 +43,7 @@ public class TesteModal {
 		botaox.click();
 		System.out.println("9-clicou no X");
 		driver.quit();
+		System.out.println("10-fechou navegador");
 
 	}
 
