@@ -1,16 +1,13 @@
 package projeto.junit.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import projeto.junit.actions.HomeActions;
-import projeto.junit.pageobjects.HomeObjects;
 
-import static org.junit.jupiter.api.Assertions.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import projeto.junit.actions.HomeActions;
 
 class TestFacebook {
     static WebDriver driver;

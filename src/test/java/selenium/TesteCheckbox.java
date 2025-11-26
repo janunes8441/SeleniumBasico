@@ -65,7 +65,7 @@ public class TesteCheckbox {
 	        System.out.println("   ➤ Checkbox " + (i + 1) + " está selecionado? " + checkbox.isSelected());
 	    }
 
-	    // Checkbox 1 -> deve ser marcado
+	    // Checkbox 1 -> deve ser marcadogit
 	    WebElement checkbox1 = checkboxes.get(0);
 	    if (!checkbox1.isSelected()) {
 	        checkbox1.click();
